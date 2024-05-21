@@ -34,8 +34,8 @@ header {
 }
 
 .bell-icon {
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem; /* Increased from 2rem */
+    height: 2.5rem; /* Increased from 2rem */
     cursor: pointer;
 }
 
@@ -113,8 +113,8 @@ footer {
     }
 
     .bell-icon {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 3rem; /* Increased from 2.5rem */
+        height: 3rem; /* Increased from 2.5rem */
     }
 
     .notification-count {
