@@ -136,6 +136,7 @@ footer {
 #about-us img {
     width: 100%;
     height: auto;
+    max-width: 100%;
 }
 
 #about-us h2 {
