@@ -184,3 +184,23 @@ footer {
 #about-us p {
     margin: 1rem 0;
 }
+
+/* Specific styles for Store Hours page */
+#store-hours img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+#store-hours .hours-info {
+    margin-top: 1rem;
+}
+
+#store-hours ul {
+    list-style: none;
+    padding: 0;
+}
+
+#store-hours ul li {
+    margin: 0.5rem 0;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Hours - Bailey's Discount Center</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Bailey's Discount Center Logo" class="logo" onclick="window.location.href='index.html'">
+        <h1>Store Hours</h1>
+        <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+    </header>
+    <nav id="nav-menu" class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="hours.html">Store Hours</a>
+    </nav>
+    <main>
+        <section id="store-hours">
+            <img src="images/hours.jpg" alt="Bailey's Discount Center Store Hours">
+            <div class="hours-info">
+                <h2>Our Store Hours</h2>
+                <ul>
+                    <li><strong>MONDAY</strong>: 8:00 AM to 8:00 PM</li>
+                    <li><strong>TUESDAY</strong>: 8:00 AM to 8:00 PM</li>
+                    <li><strong>WEDNESDAY</strong>: 8:00 AM to 8:00 PM</li>
+                    <li><strong>THURSDAY</strong>: 8:00 AM to 8:00 PM</li>
+                    <li><strong>FRIDAY</strong>: 8:00 AM to 8:00 PM</li>
+                    <li><strong>SATURDAY</strong>: 8:00 AM to 6:00 PM</li>
+                    <li><strong>SUNDAY</strong>: ALWAYS CLOSED</li>
+                </ul>
+                <p><em>Please Note</em>: All times are Central Standard Time (CST)</p>
+                <p>
+                    Bailey's Discount Center<br>
+                    5900 S. Range Rd<br>
+                    North Judson, IN 46366<br>
+                    574-896-3889<br>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=5900+S+Range+Rd,+North+Judson,+IN+46366">Get Directions</a>
+                </p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Stop by our store: 5900 S. Range Rd., North Judson, IN</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
