@@ -1,0 +1,16 @@
+{
+  "name": "special-cabinet-wriggle-eysho",
+  "productName": "special-cabinet-wriggle-eysho",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "yujik",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "30.0.6"
+  }
+}
