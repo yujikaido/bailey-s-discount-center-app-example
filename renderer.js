@@ -2,8 +2,31 @@ if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/service-worker.js').then(registration => {
             console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, error => {
+
+            registration.onupdatefound = () => {
+                const installingWorker = registration.installing;
+                installingWorker.onstatechange = () => {
+                    if (installingWorker.state === 'installed') {
+                        if (navigator.serviceWorker.controller) {
+                            // New update available
+                            console.log('New content is available; please refresh.');
+                            // Optionally, notify users of the update and prompt them to refresh
+                            if (confirm("New version available. Refresh now?")) {
+                                window.location.reload();
+                            }
+                        } else {
+                            // Content is cached for offline use
+                            console.log('Content is cached for offline use.');
+                        }
+                    }
+                };
+            };
+        }).catch(error => {
             console.log('ServiceWorker registration failed: ', error);
+        });
+
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+            window.location.reload();
         });
     });
 }
