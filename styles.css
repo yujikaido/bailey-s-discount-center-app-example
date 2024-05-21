@@ -1,60 +1,5 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-}
-
-header .logo {
-    width: 200px; /* Adjust the width as needed */
-    display: block;
-    margin: 0 auto;
-}
-
-main {
-    padding: 20px;
-}
-
-h2 {
-    color: #333;
-}
-
-#notifications, #deals {
-    margin-bottom: 20px;
-}
-
-.deal {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.deal img {
-    width: 150px;
-    margin-right: 20px;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-body {
-    font-family: Arial, sans-serif;
 }
 
 header {
@@ -114,6 +59,9 @@ footer {
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
 }
 
 #popup .close-btn {
@@ -123,4 +71,14 @@ footer {
     padding: 10px;
     cursor: pointer;
     margin-top: 10px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+    #popup {
+        width: 50%;
+        height: 50%;
+    }
 }
