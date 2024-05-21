@@ -26,11 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Toggle the navigation menu
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const navMenu = document.querySelector('#nav-menu');
-    const notificationBell = document.querySelector('.notification-bell');
-    const popup = document.querySelector('#popup');
-    const notificationCount = document.querySelector('#notification-count');
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('nav-menu');
+    const notificationBell = document.getElementById('bell-icon');
+    const popup = document.getElementById('popup');
+    const notificationCount = document.getElementById('notification-count');
+    const closePopupBtn = document.getElementById('close-btn');
+
     let unreadNotifications = 4; // Example count
 
     hamburgerMenu.addEventListener('click', () => {
@@ -45,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    const closePopupBtn = document.querySelector('#popup .close-btn');
     closePopupBtn.addEventListener('click', () => {
         popup.style.display = 'none';
     });

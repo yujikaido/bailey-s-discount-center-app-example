@@ -8,12 +8,12 @@
 </head>
 <body>
     <header>
-        <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+        <div class="hamburger-menu" id="hamburger-menu">☰</div>
         <div class="banner">
             <img src="images/logo.png" alt="Bailey's Discount Center Logo" class="logo" onclick="window.location.href='index.html'">
         </div>
         <div class="notification-bell">
-            <img src="images/bell.png" alt="Notifications" class="bell-icon">
+            <img src="images/bell.png" alt="Notifications" class="bell-icon" id="bell-icon">
             <span class="notification-count" id="notification-count">4</span> <!-- Example count -->
         </div>
     </header>
@@ -37,11 +37,6 @@
     <footer>
         <p>Stop by our store: 5900 S. Range Rd., North Judson, IN</p>
     </footer>
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('nav-menu');
-            menu.classList.toggle('active');
-        }
-    </script>
+    <script src="renderer.js"></script>
 </body>
 </html>
