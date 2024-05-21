@@ -20,6 +20,7 @@ header {
     background-color: #333;
     color: white;
     width: 100%;
+    position: relative;
 }
 
 .logo {
@@ -34,8 +35,8 @@ header {
 }
 
 .bell-icon {
-    width: 2.5rem; /* Increased from 2rem */
-    height: 2.5rem; /* Increased from 2rem */
+    width: 2.5rem;
+    height: 2.5rem;
     cursor: pointer;
 }
 
@@ -48,6 +49,22 @@ header {
     border-radius: 50%;
     padding: 0.5rem;
     font-size: 0.75rem;
+}
+
+.hamburger-menu {
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
 }
 
 main {
@@ -103,6 +120,27 @@ footer {
     text-align: center;
 }
 
+@media (max-width: 600px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 4rem;
+        right: 1rem;
+        background-color: #333;
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+}
+
 @media (min-width: 600px) {
     header {
         padding: 1.5rem;
@@ -113,8 +151,8 @@ footer {
     }
 
     .bell-icon {
-        width: 3rem; /* Increased from 2.5rem */
-        height: 3rem; /* Increased from 2.5rem */
+        width: 3rem;
+        height: 3rem;
     }
 
     .notification-count {

@@ -10,7 +10,13 @@
     <header>
         <img src="images/logo.png" alt="Bailey's Discount Center Logo" class="logo" onclick="window.location.href='index.html'">
         <h1>About Us</h1>
+        <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
     </header>
+    <nav id="nav-menu" class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <!-- Add more links as needed -->
+    </nav>
     <main>
         <section id="about-us">
             <img src="images/about_us.jpg" alt="Bailey's Discount Center">
@@ -26,5 +32,11 @@
     <footer>
         <p>Stop by our store: 5900 S. Range Rd., North Judson, IN</p>
     </footer>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
