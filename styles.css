@@ -24,27 +24,29 @@ header {
     position: relative;
 }
 
+.hamburger-menu {
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem;
+}
+
 .banner {
+    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: auto;
 }
 
 .logo {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 4rem; /* Adjust the height as needed */
     cursor: pointer;
 }
 
 .notification-bell {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
     display: flex;
     align-items: center;
+    padding: 1rem;
 }
 
 .bell-icon {
@@ -55,22 +57,13 @@ header {
 
 .notification-count {
     position: absolute;
-    top: -0.5rem;
-    right: -0.5rem;
+    top: 0.5rem;
+    right: 0.5rem;
     background: red;
     color: white;
     border-radius: 50%;
     padding: 0.5rem;
     font-size: 0.75rem;
-}
-
-.hamburger-menu {
-    font-size: 2rem;
-    cursor: pointer;
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .nav-menu {
