@@ -9,8 +9,13 @@
 <body>
     <header>
         <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
-        <img src="images/logo.png" alt="Bailey's Discount Center Logo" class="logo" onclick="window.location.href='index.html'">
-        <h1>About Us</h1>
+        <div class="banner">
+            <img src="images/logo.png" alt="Bailey's Discount Center Logo" class="logo" onclick="window.location.href='index.html'">
+        </div>
+        <div class="notification-bell">
+            <img src="images/bell.png" alt="Notifications" class="bell-icon">
+            <span class="notification-count" id="notification-count">4</span> <!-- Example count -->
+        </div>
     </header>
     <nav id="nav-menu" class="nav-menu">
         <a href="index.html">Home</a>

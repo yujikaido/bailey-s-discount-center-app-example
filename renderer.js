@@ -2,106 +2,63 @@ if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/service-worker.js').then(registration => {
             console.log('ServiceWorker registration successful with scope: ', registration.scope);
-
-            registration.onupdatefound = () => {
-                const installingWorker = registration.installing;
-                installingWorker.onstatechange = () => {
-                    if (installingWorker.state === 'installed') {
-                        if (navigator.serviceWorker.controller) {
-                            // New update available
-                            console.log('New content is available; please refresh.');
-                            // Optionally, notify users of the update and prompt them to refresh
-                            if (confirm("New version available. Refresh now?")) {
-                                window.location.reload();
-                            }
-                        } else {
-                            // Content is cached for offline use
-                            console.log('Content is cached for offline use.');
-                        }
-                    }
-                };
-            };
-        }).catch(error => {
+        }, error => {
             console.log('ServiceWorker registration failed: ', error);
-        });
-
-        navigator.serviceWorker.addEventListener('controllerchange', () => {
-            window.location.reload();
         });
     });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const notificationBell = document.querySelector(".bell-icon");
-    const notificationCount = document.getElementById("notification-count");
-    const popup = document.createElement("div");
-    popup.id = "popup";
-    document.body.appendChild(popup);
+    const notificationList = document.getElementById("notification-list");
 
-    const closePopup = () => {
-        popup.style.display = "none";
-    };
+    const notifications = [
+        "New Martin Svensson Dining Sets available for $599.99!",
+        "Check out our new Bliss Hammock with Stand for just $99.99!",
+        "Refreshing Shine Water now just $2.99/case!",
+        "Modular Garden Planters starting at $4.99!"
+    ];
 
-    notificationBell.addEventListener("click", () => {
-        if (popup.style.display === "block") {
-            closePopup();
-        } else {
-            popup.innerHTML = `
-                <h2>New Deals</h2>
-                <div class="deal">
-                    <img src="images/deal1.jpg" alt="Dining Sets Deal">
-                    <p>Martin Svensson Dining Sets - $599.99</p>
-                </div>
-                <div class="deal">
-                    <img src="images/deal2.jpg" alt="Hammock Deal">
-                    <p>Bliss Hammock with Stand - $99.99</p>
-                </div>
-                <div class="deal">
-                    <img src="images/deal3.jpg" alt="Shine Water Deal">
-                    <p>Shine Water - $2.99/case</p>
-                </div>
-                <div class="deal">
-                    <img src="images/deal4.jpg" alt="Garden Planters Deal">
-                    <p>Modular Garden Planters - from $4.99</p>
-                </div>
-                <button class="close-btn">Close</button>
-            `;
-            popup.style.display = "block";
-            document.querySelector(".close-btn").addEventListener("click", closePopup);
+    notifications.forEach(notification => {
+        const notificationItem = document.createElement("div");
+        notificationItem.classList.add("notification-item");
+        notificationItem.textContent = notification;
+        notificationList.appendChild(notificationItem);
+    });
 
-            // Hide the notification counter after viewing the deals
-            notificationCount.style.display = "none";
+    // Toggle the navigation menu
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const navMenu = document.querySelector('#nav-menu');
+    const notificationBell = document.querySelector('.notification-bell');
+    const popup = document.querySelector('#popup');
+    const notificationCount = document.querySelector('#notification-count');
+    let unreadNotifications = 4; // Example count
+
+    hamburgerMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    notificationBell.addEventListener('click', () => {
+        popup.style.display = popup.style.display === 'none' || popup.style.display === '' ? 'block' : 'none';
+        if (popup.style.display === 'block') {
+            notificationCount.style.display = 'none';
+            unreadNotifications = 0;
         }
     });
 
-    // Initialize Firebase Messaging
-    const messaging = firebase.messaging();
-
-    // Request permission to send notifications
-    messaging.requestPermission()
-        .then(() => {
-            console.log('Notification permission granted.');
-            // Get the token
-            return messaging.getToken();
-        })
-        .then(token => {
-            console.log('FCM Token:', token);
-            // You can send this token to your server to send notifications
-        })
-        .catch(error => {
-            console.error('Error getting permission or token:', error);
-        });
-
-    // Handle incoming messages
-    messaging.onMessage(payload => {
-        console.log('Message received:', payload);
-        // Customize notification here
-        const notificationTitle = payload.notification.title;
-        const notificationOptions = {
-            body: payload.notification.body,
-            icon: payload.notification.icon
-        };
-
-        new Notification(notificationTitle, notificationOptions);
+    const closePopupBtn = document.querySelector('#popup .close-btn');
+    closePopupBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
     });
+
+    // Update the notification count
+    function updateNotificationCount() {
+        if (unreadNotifications > 0) {
+            notificationCount.textContent = unreadNotifications;
+            notificationCount.style.display = 'block';
+        } else {
+            notificationCount.style.display = 'none';
+        }
+    }
+
+    updateNotificationCount();
 });
