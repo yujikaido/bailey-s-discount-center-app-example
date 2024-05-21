@@ -24,6 +24,7 @@ header {
 
 .logo {
     height: 3rem;
+    cursor: pointer;
 }
 
 .notification-bell {
@@ -129,4 +130,18 @@ footer {
     footer {
         padding: 1.5rem;
     }
+}
+
+/* Specific styles for About Us page */
+#about-us img {
+    width: 100%;
+    height: auto;
+}
+
+#about-us h2 {
+    color: #333;
+}
+
+#about-us p {
+    margin: 1rem 0;
 }

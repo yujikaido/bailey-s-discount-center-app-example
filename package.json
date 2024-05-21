@@ -1,6 +1,6 @@
 {
-  "name": "special-cabinet-wriggle-eysho",
-  "productName": "special-cabinet-wriggle-eysho",
+  "name": "BDCAPP",
+  "productName": "BDCAPP",
   "description": "My Electron application description",
   "keywords": [],
   "main": "./main.js",
