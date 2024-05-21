@@ -12,16 +12,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const notificationList = document.getElementById("notification-list");
 
     const notifications = [
-        "New Martin Svensson Dining Sets available for $599.99!",
-        "Check out our new Bliss Hammock with Stand for just $99.99!",
-        "Refreshing Shine Water now just $2.99/case!",
-        "Modular Garden Planters starting at $4.99!"
+        {
+            text: "New Martin Svensson Dining Sets available for $599.99!",
+            img: "images/deal1.jpg"
+        },
+        {
+            text: "Check out our new Bliss Hammock with Stand for just $99.99!",
+            img: "images/deal2.jpg"
+        },
+        {
+            text: "Refreshing Shine Water now just $2.99/case!",
+            img: "images/deal3.jpg"
+        },
+        {
+            text: "Modular Garden Planters starting at $4.99!",
+            img: "images/deal4.jpg"
+        },
+        {
+            text: "New Deal - Special Offer!",
+            img: "images/deal5.jpg"
+        }
     ];
 
     notifications.forEach(notification => {
         const notificationItem = document.createElement("div");
         notificationItem.classList.add("notification-item");
-        notificationItem.textContent = notification;
+        
+        const notificationImg = document.createElement("img");
+        notificationImg.src = notification.img;
+        notificationImg.alt = notification.text;
+
+        const notificationText = document.createElement("p");
+        notificationText.textContent = notification.text;
+
+        notificationItem.appendChild(notificationImg);
+        notificationItem.appendChild(notificationText);
+
         notificationList.appendChild(notificationItem);
     });
 
@@ -33,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const notificationCount = document.getElementById('notification-count');
     const closePopupBtn = document.getElementById('close-btn');
 
-    let unreadNotifications = 4; // Example count
+    let unreadNotifications = notifications.length; // Update count based on actual notifications
 
     hamburgerMenu.addEventListener('click', () => {
         navMenu.classList.toggle('active');
