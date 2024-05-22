@@ -213,3 +213,45 @@ footer {
 #store-hours ul li {
     margin: 0.5rem 0;
 }
+/* General styles for the gallery */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.gallery img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive columns */
+@media (min-width: 576px) {
+    .gallery img {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (min-width: 768px) {
+    .gallery img {
+        flex: 1 1 calc(33.33% - 20px);
+    }
+}
+
+@media (min-width: 992px) {
+    .gallery img {
+        flex: 1 1 calc(25% - 20px);
+    }
+}
+
+@media (min-width: 1200px) {
+    .gallery img {
+        flex: 1 1 calc(20% - 20px);
+    }
+}
