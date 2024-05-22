@@ -34,22 +34,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     ];
 
-    notifications.forEach(notification => {
-        const notificationItem = document.createElement("div");
-        notificationItem.classList.add("notification-item");
-        
-        const notificationImg = document.createElement("img");
-        notificationImg.src = notification.img;
-        notificationImg.alt = notification.text;
+    if (notificationList) {
+        notifications.forEach(notification => {
+            const notificationItem = document.createElement("div");
+            notificationItem.classList.add("notification-item");
 
-        const notificationText = document.createElement("p");
-        notificationText.textContent = notification.text;
+            const notificationImg = document.createElement("img");
+            notificationImg.src = notification.img;
+            notificationImg.alt = notification.text;
 
-        notificationItem.appendChild(notificationImg);
-        notificationItem.appendChild(notificationText);
+            const notificationText = document.createElement("p");
+            notificationText.textContent = notification.text;
 
-        notificationList.appendChild(notificationItem);
-    });
+            notificationItem.appendChild(notificationImg);
+            notificationItem.appendChild(notificationText);
+
+            notificationList.appendChild(notificationItem);
+        });
+    }
 
     // Toggle the navigation menu
     const hamburgerMenu = document.getElementById('hamburger-menu');
@@ -61,21 +63,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let unreadNotifications = notifications.length; // Update count based on actual notifications
 
-    hamburgerMenu.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
+    if (hamburgerMenu && navMenu) {
+        hamburgerMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
 
-    notificationBell.addEventListener('click', () => {
-        popup.style.display = popup.style.display === 'none' || popup.style.display === '' ? 'block' : 'none';
-        if (popup.style.display === 'block') {
-            notificationCount.style.display = 'none';
-            unreadNotifications = 0;
-        }
-    });
+    if (notificationBell && popup && notificationCount) {
+        notificationBell.addEventListener('click', () => {
+            popup.style.display = popup.style.display === 'none' || popup.style.display === '' ? 'block' : 'none';
+            if (popup.style.display === 'block') {
+                notificationCount.style.display = 'none';
+                unreadNotifications = 0;
+            }
+        });
+    }
 
-    closePopupBtn.addEventListener('click', () => {
-        popup.style.display = 'none';
-    });
+    if (closePopupBtn && popup) {
+        closePopupBtn.addEventListener('click', () => {
+            popup.style.display = 'none';
+        });
+    }
 
     // Update the notification count
     function updateNotificationCount() {
