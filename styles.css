@@ -24,6 +24,14 @@ header {
     position: relative;
 }
 
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 1rem;
+}
+
 .hamburger-menu {
     font-size: 2rem;
     cursor: pointer;
@@ -53,16 +61,17 @@ header {
     width: 2.5rem;
     height: 2.5rem;
     cursor: pointer;
+    position: relative;
 }
 
 .notification-count {
     position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
+    top: -10px;
+    right: -10px;
     background: red;
     color: white;
     border-radius: 50%;
-    padding: 0.5rem;
+    padding: 2px 5px;
     font-size: 0.75rem;
 }
 
@@ -213,6 +222,7 @@ footer {
 #store-hours ul li {
     margin: 0.5rem 0;
 }
+
 /* General styles for the gallery */
 .gallery {
     display: flex;
